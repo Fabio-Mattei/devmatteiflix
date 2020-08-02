@@ -17,6 +17,7 @@ function CadastroCategoria() {
   const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
+<<<<<<< HEAD
     const URL_TOP = window.location.hostname.includes('localhost')
       ? 'http://localhost:8080/categorias'
       : 'https://devmatteiflix.herokuapp.com/categorias';
@@ -48,6 +49,20 @@ function CadastroCategoria() {
     // }, 4 * 1000);
   }, []);
 
+=======
+      const URL = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categorias' : 'https://devmatteiflix.herokuapp.com/categorias';
+      fetch(URL)
+        .then(async (respostaDoServer) => {
+          if (respostaDoServer.ok) {
+            const resposta = await respostaDoServer.json();
+            setCategorias(resposta);
+            return;
+          }
+          throw new Error('Não foi possível pegar os dados');
+        });
+    }, []);
+  
+>>>>>>> b81733ffb6958e04aaeec99ea0dd5c60fa8253fe
   return (
     <PageDefault>
       <h1>
